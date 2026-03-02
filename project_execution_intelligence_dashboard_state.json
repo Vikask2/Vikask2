@@ -1,0 +1,41 @@
+{
+  "project_name": "Project Execution Intelligence Dashboard",
+  "locked_modules": [
+    "Business Intelligence Engine",
+    "Marketing Strategy Engine",
+    "Content & Creative Execution Engine"
+  ],
+  "state": {
+    "business_intelligence": {
+      "status": "awaiting_input",
+      "locked": false,
+      "required_inputs": [
+        "website_url",
+        "optional_manual_data"
+      ],
+      "last_output_schema": "ui_component_pattern_v1"
+    },
+    "marketing_strategy": {
+      "status": "blocked",
+      "locked": true,
+      "depends_on": "business_intelligence.locked"
+    },
+    "content_creative_execution": {
+      "status": "blocked",
+      "locked": true,
+      "depends_on": "marketing_strategy.selection_complete"
+    }
+  },
+  "response_contract": {
+    "format": "dashboard_ready_json_only",
+    "requires": [
+      "Dashboard_Header",
+      "Summary_Cards",
+      "Detailed_Data_Sections",
+      "Charts_Data",
+      "Mindmap_Data",
+      "Editable_Fields",
+      "Next_Action"
+    ]
+  }
+}
